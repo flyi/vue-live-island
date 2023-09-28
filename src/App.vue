@@ -1,10 +1,24 @@
 <script setup lang="ts">
+import LiveIsland from './LiveIsland.vue'
 import HelloWorld from "./components/HelloWorld.vue";
 import TheWelcome from "./components/TheWelcome.vue";
+import { ref } from 'vue';
+
+const isSmall = ref<boolean>(true)
 </script>
 
 <template>
   <header>
+    <LiveIsland
+      class-name="flex items-center justify-center uppercase"
+      small-class-name="text-xs"
+      large-class-name="text-7xl"
+      trigger-type="click"
+      initial-animation
+      @change="(change:boolean)=>{isSmall = !change}"
+    >
+      {{ isSmall ? 'Small':'Large' }}
+    </LiveIsland>
     <img
       alt="Vue logo"
       class="logo"
