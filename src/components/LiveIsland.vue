@@ -1,4 +1,4 @@
- <template>
+<template>
     <div
       v-show="!isHide"
       :class="['live-island-wrapper', 'fixed', 'inset-x-0', 'top-[--top]', 'z-[9999]', wrapperClassName]"

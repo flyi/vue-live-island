@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import LiveIsland from './LiveIsland.vue'
-import HelloWorld from "./components/HelloWorld.vue";
+import HelloWorld from './components/HelloWorld.vue'
+import LiveIsland from './components/LiveIsland.vue'
 import TheWelcome from "./components/TheWelcome.vue";
 import { ref } from 'vue';
 
@@ -9,7 +9,7 @@ const isSmall = ref<boolean>(true)
 
 <template>
   <header>
-    <LiveIsland
+      <LiveIsland
       class-name="flex items-center justify-center uppercase"
       small-class-name="text-xs"
       large-class-name="text-7xl"
@@ -30,8 +30,12 @@ const isSmall = ref<boolean>(true)
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
     </div>
+    <div>
+    <a href="https://vitejs.dev" target="_blank">
+      <img src="/vite.svg" class="logo" alt="Vite logo" />
+    </a>
+  </div>
   </header>
-
   <main>
     <TheWelcome />
   </main>
@@ -43,8 +47,15 @@ header {
 }
 
 .logo {
-  display: block;
-  margin: 0 auto 2rem;
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.vue:hover {
+  filter: drop-shadow(0 0 2em #42b883aa);
 }
 
 @media (min-width: 1024px) {
