@@ -28,20 +28,24 @@ npm i vue-live-island
 ## Usage
 
 ```js
-import LiveIsland from './components/LiveIsland.vue'
+import { LiveIsland } from 'vue-live-island';
+import 'vue-live-island/dist/vue-live-island.css'
 import { ref } from 'vue';
 
 const isSmall = ref<boolean>(true)
-      <LiveIsland
-      class-name="flex items-center justify-center uppercase"
-      small-class-name="text-xs"
-      large-class-name="text-7xl"
-      trigger-type="click"
-      initial-animation
-      @change="(change:boolean)=>{isSmall = !change}"
-    >
-      {{ isSmall ? 'Small':'Large' }}
-    </LiveIsland>
+```
+
+```html
+<LiveIsland
+    class-name="flex items-center justify-center uppercase"
+    small-class-name="text-xs"
+    large-class-name="text-7xl"
+    trigger-type="click"
+    initial-animation
+    @change="(change:boolean)=>{isSmall = !change}"
+>
+    {{ isSmall ? 'Small':'Large' }}
+</LiveIsland>
 ```
 
 ## Props
@@ -63,6 +67,10 @@ const isSmall = ref<boolean>(true)
 | `onChange`         | `(isSmall: boolean) => void`      | -         | Call when the island open & close             |
 | `children`         | `(isSmall: boolean) => ReactNode` | -         | Render funtion to define the island's content |
 
+## Reference
+This project is built with
+- [react-live-island](https://github.com/nanxiaobei/react-live-island)
+
 ## License
 
-[MIT License](https://github.com/flyi/vue-live-island/blob/main/LICENSE)
+[MIT License](https://github.com/flyi/vue-live-island/blob/master/LICENSE)
