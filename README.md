@@ -1,46 +1,68 @@
+
+---
+
+<div align="center">
+
 # vue-live-island
 
-This template should help get you started developing with Vue 3 in Vite.
+Dynamic Island 🏝 for ⚛️ Vue
 
-## Recommended IDE Setup
+[![npm](https://img.shields.io/npm/v/vue-live-island.svg?style=flat-square)](https://www.npmjs.com/package/vue-live-island)
+[![npm](https://img.shields.io/npm/dt/vue-live-island?style=flat-square)](https://www.npmtrends.com/vue-live-island)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/vue-live-island?style=flat-square)](https://bundlephobia.com/result?p=vue-live-island)
+[![GitHub](https://img.shields.io/github/license/nanxiaobei/react-live-island?style=flat-square)](https://github.com/nanxiaobei/react-live-island/blob/main/LICENSE)
+[![npm type definitions](https://img.shields.io/npm/types/typescript?style=flat-square)](https://github.com/nanxiaobei/react-live-island/blob/main/src/types.ts)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+</div>
 
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+## Install
 
 ```sh
-npm install
+pnpm add vue-live-island
+# or
+yarn add vue-live-island
+# or
+npm i vue-live-island
 ```
 
-### Compile and Hot-Reload for Development
+## Usage
 
-```sh
-npm run dev
+```js
+import LiveIsland from './components/LiveIsland.vue'
+import { ref } from 'vue';
+
+const isSmall = ref<boolean>(true)
+      <LiveIsland
+      class-name="flex items-center justify-center uppercase"
+      small-class-name="text-xs"
+      large-class-name="text-7xl"
+      trigger-type="click"
+      initial-animation
+      @change="(change:boolean)=>{isSmall = !change}"
+    >
+      {{ isSmall ? 'Small':'Large' }}
+    </LiveIsland>
 ```
 
-### Type-Check, Compile and Minify for Production
+## Props
 
-```sh
-npm run build
-```
+| Prop               | Type                              | Default   | Description                                   |
+| ------------------ | --------------------------------- | --------- | --------------------------------------------- |
+| `className`        | `string`                          | `''`      | Class name of the island                      |
+| `top`              | `number\|string`                  | `10`      | Top egde of the island                        |
+| `smallClassName`   | `string`                          | `''`      | Class name of the **small** island            |
+| `smallWidth`       | `number\|string`                  | `96`      | Width of the **small** island                 |
+| `smallHeight`      | `number\|string`                  | `30`      | Height of the **small** island                |
+| `largeClassName`   | `string`                          | `''`      | Class name of the **large** island            |
+| `largeWidth`       | `number\|string`                  | `400`     | Width of the **large** island                 |
+| `largeHeight`      | `number\|string`                  | `180`     | Height of the **large** island                |
+| `largeRadius`      | `number\|string`                  | `36`      | Border radius of the **large** island         |
+| `wrapperClassName` | `string`                          | `''`      | Class name of the whole container             |
+| `triggerType`      | `'click'\|'hover'`                | `'click'` | Trigger mode for open                         |
+| `initialAnimation` | `boolean`                         | `false`   | Whether show animiation on enter              |
+| `onChange`         | `(isSmall: boolean) => void`      | -         | Call when the island open & close             |
+| `children`         | `(isSmall: boolean) => ReactNode` | -         | Render funtion to define the island's content |
 
-### Lint with [ESLint](https://eslint.org/)
+## License
 
-```sh
-npm run lint
-```
+[MIT License](https://github.com/flyi/vue-live-island/blob/main/LICENSE)
