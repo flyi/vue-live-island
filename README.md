@@ -64,8 +64,7 @@ const isSmall = ref<boolean>(true)
 | `wrapperClassName` | `string`                          | `''`      | Class name of the whole container             |
 | `triggerType`      | `'click'\|'hover'`                | `'click'` | Trigger mode for open                         |
 | `initialAnimation` | `boolean`                         | `false`   | Whether show animiation on enter              |
-| `onChange`         | `(isSmall: boolean) => void`      | -         | Call when the island open & close             |
-| `children`         | `(isSmall: boolean) => ReactNode` | -         | Render funtion to define the island's content |
+
 
 ## Reference
 This project is built with

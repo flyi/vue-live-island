@@ -13,6 +13,7 @@
     "skipLibCheck": true,
     "noEmit": true,
     "allowJs": true,
+    "importsNotUsedAsValues": "remove",
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
@@ -27,5 +28,6 @@
     }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "extends": "@vue/tsconfig/tsconfig.dom.json"
 }
