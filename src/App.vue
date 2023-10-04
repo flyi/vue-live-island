@@ -1,23 +1,27 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import LiveIsland from './components/LiveIsland.vue'
+import HelloWorld from "./components/HelloWorld.vue";
+import LiveIsland from "./components/LiveIsland.vue";
 import TheWelcome from "./components/TheWelcome.vue";
-import { ref } from 'vue';
+import { ref } from "vue";
 
-const isSmall = ref<boolean>(true)
+const isSmall = ref<boolean>(true);
 </script>
 
 <template>
   <header>
-      <LiveIsland
+    <LiveIsland
       class-name="flex items-center justify-center uppercase"
       small-class-name="text-xs"
       large-class-name="text-7xl"
       trigger-type="click"
       initial-animation
-      @change="(change:boolean)=>{isSmall = !change}"
+      @change="
+        (change: boolean) => {
+          isSmall = !change;
+        }
+      "
     >
-      {{ isSmall ? 'Small':'Large' }}
+      {{ isSmall ? "Small" : "Large" }}
     </LiveIsland>
     <img
       alt="Vue logo"
@@ -31,10 +35,10 @@ const isSmall = ref<boolean>(true)
       <HelloWorld msg="You did it!" />
     </div>
     <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-  </div>
+      <a href="https://vitejs.dev" target="_blank">
+        <img src="/vite.svg" class="logo" alt="Vite logo" />
+      </a>
+    </div>
   </header>
   <main>
     <TheWelcome />
