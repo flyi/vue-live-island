@@ -1,5 +1,6 @@
 
 ---
+![](vue-live-island.gif)
 
 <div align="center">
 
@@ -27,15 +28,15 @@ npm i vue-live-island
 
 ## Usage
 
-```js
+```html
+<script setup lang="ts">
 import { LiveIsland } from 'vue-live-island';
-import 'vue-live-island/dist/vue-live-island.css'
 import { ref } from 'vue';
 
 const isSmall = ref<boolean>(true)
-```
+</script>
 
-```html
+<template>
 <LiveIsland
     class-name="flex items-center justify-center uppercase"
     small-class-name="text-xs"
@@ -46,6 +47,7 @@ const isSmall = ref<boolean>(true)
 >
     {{ isSmall ? 'Small':'Large' }}
 </LiveIsland>
+</template>
 ```
 
 ## Props
